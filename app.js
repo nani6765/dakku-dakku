@@ -13,6 +13,6 @@ app.get("*", (req, res) => {
   return res.sendFile(path.join(__dirname, "/server/dist/index.html"));
 });
 
-app.listen(PORT, (req, res) => {
+app.listen(PORT, () => {
   console.log(`Server Running... ${PORT}`);
 });
