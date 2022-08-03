@@ -1,4 +1,4 @@
-# Project setting
+# Run Project
 
 1. cd dakku-dakku
 2. npm i
