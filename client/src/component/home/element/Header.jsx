@@ -3,39 +3,39 @@ import styled from '@emotion/styled';
 
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
-import { loginState, idState } from '../../../recoil/LoginAtom';
+// import { loginState, idState } from '../../../recoil/LoginAtom';
 
 export default function Header() {
   const navigate = useNavigate();
-  const [isLogin, setIsLogin] = useRecoilState(loginState);
-  const [userID, setuserID] = useRecoilState(idState);
+  // const [isLogin, setIsLogin] = useRecoilState(loginState);
+  // const [userID, setuserID] = useRecoilState(idState);
 
-  console.log(localStorage.getItem("recoil-persist"))
+  // console.log(localStorage.getItem("recoil-persist"))
   
-  const LogoutFunc = () => {
-    localStorage.removeItem("recoil-persist")
-    setIsLogin(false);
-    navigate("/");
-  }
+  // const LogoutFunc = () => {
+  //   localStorage.removeItem("recoil-persist")
+  //   setIsLogin(false);
+  //   navigate("/");
+  // }
 
-  const UserSetInfo = function(login){
-    if(login.login){
-      return(
-        <>
-          <span>{userID}님, 안녕하세요</span>
-          <button onClick={ () => {LogoutFunc()} }>로그아웃</button>
-        </>
-      )
-    }
-    else{
-      return(
-        <>
-          <span>로그인시 이용 가능합니다.</span>
-          <button onClick={() => { navigate("/login") }}>로그인</button>
-        </>
-      )
-    }
-  }
+  // const UserSetInfo = function(login){
+  //   if(login.login){
+  //     return(
+  //       <>
+  //         <span>{userID}님, 안녕하세요</span>
+  //         <button onClick={ () => {LogoutFunc()} }>로그아웃</button>
+  //       </>
+  //     )
+  //   }
+  //   else{
+  //     return(
+  //       <>
+  //         <span>로그인시 이용 가능합니다.</span>
+  //         <button onClick={() => { navigate("/login") }}>로그인</button>
+  //       </>
+  //     )
+  //   }
+  // }
 
   return (
     <Nav>
@@ -45,7 +45,7 @@ export default function Header() {
           </a>
         </LogoBox>
         <UserSet>
-          <UserSetInfo login={isLogin} />
+          {/* <UserSetInfo login={isLogin} /> */}
         </UserSet>
     </Nav>
   )
