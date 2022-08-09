@@ -18,17 +18,7 @@ function App() {
   const [user, setUser] = useRecoilState(userState);
 
   useEffect(() => {
-    onAuthStateChanged(firebaseAuth, (userInfo) => {
-      if (userInfo) {
-        setUser(() => {
-          return {
-            isLogin: true,
-            userDoc: userInfo,
-          };
-        });
-      } else {
-      }
-    });
+    onAuthStateChanged(firebaseAuth, (userInfo) => {});
   }, []);
 
   return (
