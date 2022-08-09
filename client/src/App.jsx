@@ -1,10 +1,11 @@
 //Import
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { firebaseAuth } from "./config/firebase.js";
+import axios from "axios";
 
-import { useRecoilState } from "recoil";
+import { useRecoilState, useResetRecoilState } from "recoil";
 import { userState } from "./recoil/LoginAtom.js";
 
 //Component
@@ -16,18 +17,29 @@ import "./App.css";
 
 function App() {
   const [user, setUser] = useRecoilState(userState);
+  const clearUser = useResetRecoilState(userState);
 
   useEffect(() => {
     onAuthStateChanged(firebaseAuth, (userInfo) => {
       if (userInfo) {
-        setUser(() => {
-          return {
-            isLogin: true,
-            userDoc: userInfo,
-          };
-        });
+        let temp = {
+          isLogin: true,
+          userDoc: userInfo,
+        };
+        setUser(temp);
       } else {
+        clearUser();
       }
+    });
+  }, []);
+
+  useEffect(() => {
+    console.log(user);
+  }, [user]);
+
+  useEffect(() => {
+    axios.get("/api/test").then((response) => {
+      console.log(response.data);
     });
   }, []);
 
