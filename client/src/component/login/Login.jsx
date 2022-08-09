@@ -15,7 +15,7 @@ function Login() {
     let doc = { email: "test@test.com", password: "123456" };
     await signInWithEmailAndPassword(firebaseAuth, doc.email, doc.password)
       .then((elem) => {
-        console.log("로그인!");
+        // navigate main
       })
       .catch((err) => {
         console.log("로그인실패!", err);
@@ -26,7 +26,7 @@ function Login() {
     e.preventDefault();
     await signOut(firebaseAuth)
       .then(() => {
-        console.log("로그아웃!");
+        // navigate main
       })
       .catch((error) => {
         console.log("로그아웃 실패!", error);
