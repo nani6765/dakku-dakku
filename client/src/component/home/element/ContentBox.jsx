@@ -9,7 +9,7 @@ export default function ContentBox(contents) {
                 return <Tag key={idx}>#{tg} </Tag>
             })}
         </TagBox>
-        <Content>
+        <Content href={`/post/${contents.postId}`}>
             {contents.content}
         </Content>
     </TagDiv>
@@ -32,6 +32,6 @@ const Tag = styled.span`
     color: blue;
 `
 
-const Content = styled.div`
+const Content = styled.a`
 
 `
