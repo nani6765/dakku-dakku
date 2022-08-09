@@ -7,5 +7,5 @@ export default defineConfig({
   plugins: [react()],
   build: {
     outDir: path.join(__dirname, "../server/dist"),
-  },
+  }
 });

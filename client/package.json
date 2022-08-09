@@ -8,13 +8,27 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "axios": "^0.27.2",
+    "emotion": "^11.0.0",
     "path": "^0.12.7",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+<<<<<<< HEAD
     "react-google-login": "^5.2.2",
     "react-router-dom": "^6.3.0",
     "recoil": "^0.7.4",
     "recoil-persist": "^4.2.0"
+=======
+    "react-id-swiper": "^4.0.0",
+    "react-router-dom": "^6.3.0",
+    "react-simple-image-slider": "^2.4.1",
+    "require": "^2.4.20",
+    "sass": "^1.54.3",
+    "styled-component": "^2.8.0",
+    "swiper": "^6.8.4"
+>>>>>>> e1184c6820078bf3a9a019f8c13a252abd8a73bf
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
