@@ -21,7 +21,8 @@ export default function HomeList(info) {
         content, 
         like, 
         comment, 
-        tag
+        tag,
+        postId
     } = info.info
 
   return (
@@ -32,7 +33,7 @@ export default function HomeList(info) {
 
         <SlideBox image={image} />
         
-        <ContentBox tag={tag} content={content} />
+        <ContentBox tag={tag} content={content} postId={postId} />
         
         <Reaction like={like} comment={comment} />
     </List>

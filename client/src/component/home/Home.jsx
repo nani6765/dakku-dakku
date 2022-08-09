@@ -38,8 +38,8 @@ export default function home() {
                 <ListBox>
                     {   
                         userList.length > 0
-                        ? userList.map((pl, idx)=>{ 
-                                return <HomeList info={pl} key={idx} /> 
+                        ? userList.map((pl)=>{ 
+                                return <HomeList info={pl} key={pl.postId} /> 
                             })
                         : false
                     }
