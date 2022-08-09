@@ -1,16 +1,16 @@
-import { atom } from 'recoil';
-import { recoilPersist } from 'recoil-persist';
+import { atom } from "recoil";
+import { recoilPersist } from "recoil-persist";
 
 const { persistAtom } = recoilPersist();
 
-export const loginState = atom({
-  key: 'isLogin',
-  default: false,
-  effects_UNSTABLE: [persistAtom],
-})
+const InitialUser = {
+  isLogin: false,
+  userDoc: {},
+};
 
-export const idState = atom({
-  key: 'id',
-  default: '',
+export const userState = atom({
+  key: "user",
+  default: InitialUser,
+  //dangerouslyAllowMutability: true,
   effects_UNSTABLE: [persistAtom],
-})
+});
