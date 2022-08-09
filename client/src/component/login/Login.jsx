@@ -1,24 +1,36 @@
 import React from "react";
 import { GoogleLogin } from "react-google-login";
 import { useNavigate } from "react-router-dom";
-import { loginState, idState } from "../../recoil/LoginAtom";
-import { selector, useRecoilState } from "recoil";
 import { useState } from "react";
+import { firebaseAuth } from "../../config/firebase.js";
+import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 function Login() {
   const navigate = useNavigate();
-  const [userId, setUserId] = useRecoilState(idState);
+  const [userId, setUserId] = useState("");
   const [userPw, setUserPw] = useState("");
-  const [isLogin, setIsLogin] = useRecoilState(loginState);
 
-  const LoginFunc = (e) => {
+  const LoginFunc = async (e) => {
     e.preventDefault();
-    setIsLogin(true);
-    console.log("id:", userId);
-    console.log("pw:", userPw);
-    console.log("login_state:", isLogin);
-    // localStorage.setItem("userId", userId)
-    navigate("/");
+    let doc = { email: "test@test.com", password: "123456" };
+    await signInWithEmailAndPassword(firebaseAuth, doc.email, doc.password)
+      .then((elem) => {
+        console.log("로그인!");
+      })
+      .catch((err) => {
+        console.log("로그인실패!", err);
+      });
+  };
+
+  const LogoutFunc = async (e) => {
+    e.preventDefault();
+    await signOut(firebaseAuth)
+      .then(() => {
+        console.log("로그아웃!");
+      })
+      .catch((error) => {
+        console.log("로그아웃 실패!", error);
+      });
   };
 
   // console.log(localStorage.getItem("userId"))
@@ -30,6 +42,15 @@ function Login() {
 
   return (
     <>
+      <div>
+        <button
+          onClick={(e) => {
+            LogoutFunc(e);
+          }}
+        >
+          로그아웃
+        </button>
+      </div>
       <div>
         <button
           onClick={() => {

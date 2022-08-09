@@ -1,0 +1,80 @@
+[
+    {
+        "id":"I_am_John_Doe", 
+        "profileImg":"",
+        "nickname":"unknown", 
+        "date":"2022-08-03", 
+        "time":"17:00:00", 
+        "image":["/image/cats.jpg"], 
+        "content":"Main Text", 
+        "like":0, 
+        "comment":10, 
+        "tag":["분홍", "봄바람", "벚꽃"],
+        "publics": true
+    },
+    {
+        "id":"diewarrior", 
+        "profileImg":"",
+        "nickname":"Die워리어", 
+        "date":"2022-08-04", 
+        "time":"12:00:00", 
+        "image":["/image/cats.jpg","/image/cats.jpg"], 
+        "content":"Main Text2", 
+        "like":0, 
+        "comment":10, 
+        "tag":["글래디에이터", "중세"],
+        "publics": false
+    },
+    {
+        "id":"yesGuy", 
+        "profileImg":"",
+        "nickname":"예스맨", 
+        "date":"2022-08-01", 
+        "time":"21:50:00", 
+        "image":["/image/cats.jpg","/image/cats.jpg","/image/cats.jpg"], 
+        "content":"Main Text3", 
+        "like":0, 
+        "comment":10, 
+        "tag":["Yes", "YesYes", "YesYesYes"],
+        "publics": true
+    },
+    {
+        "id":"Hound", 
+        "profileImg":"",
+        "nickname":"Hound", 
+        "date":"2022-08-01", 
+        "time":"21:50:00", 
+        "image":["/image/cats.jpg","/image/cats.jpg"], 
+        "content":"Main Text4", 
+        "like":0, 
+        "comment":10, 
+        "tag":["Hound"],
+        "publics": true
+    },
+    {
+        "id":"Mouse", 
+        "profileImg":"",
+        "nickname":"Mouse", 
+        "date":"2022-08-01", 
+        "time":"21:50:00", 
+        "image":["/image/cats.jpg","/image/cats.jpg","/image/cats.jpg","/image/cats.jpg","/image/cats.jpg"], 
+        "content":"Main Text5", 
+        "like":0, 
+        "comment":10, 
+        "tag":["마우스"],
+        "publics": true
+    },
+    {
+        "id":"Gamer", 
+        "profileImg":"",
+        "nickname":"Gamer", 
+        "date":"2022-08-01", 
+        "time":"21:50:00", 
+        "image":["/image/cats.jpg","/image/cats.jpg"], 
+        "content":"Main Text6", 
+        "like":0, 
+        "comment":10, 
+        "tag":["play_to game"],
+        "publics": true
+    }
+]
