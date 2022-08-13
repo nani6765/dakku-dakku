@@ -14,6 +14,7 @@ app.use(cors());
 
 /* routing */
 app.use("/api/user", require("./server/router/user.js"));
+app.use("/api/post", require("./server/router/post.js"));
 
 app.get("/", (req, res) => {
   return res.sendFile(path.join(__dirname, "/server/dist/index.html"));
