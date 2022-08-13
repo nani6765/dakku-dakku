@@ -26,6 +26,14 @@ const postSchema = mongoose.Schema(
       type: Number,
       default: 0,
     },
+    likeList: {
+      type: Array,
+      default: [],
+    },
+    commentList: {
+      type: Array,
+      default: [],
+    },
     public: Boolean,
   },
   // createdAt, updateaAt
