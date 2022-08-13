@@ -6,13 +6,12 @@ require("dotenv").config();
 const PORT = process.env.PORT || 5000;
 const path = require("path");
 const cors = require("cors");
+const { swaggerUi, specs } = require("./swagger.js");
 
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "/server/dist")));
 app.use(cors());
-
-/* routing */
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 app.use("/api/user", require("./server/router/user.js"));
 app.use("/api/post", require("./server/router/post.js"));
 
