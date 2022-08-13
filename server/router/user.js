@@ -19,7 +19,7 @@ router.post("/register", middlewares.emailCheck, (req, res) => {
   let NewUser = new User(userData);
   NewUser.save()
     .then(() => {
-      Counter.findOneAndUpdate({ userNum: { $inc: 1 } })
+      Counter.findOneAndUpdate({ name: "counter" }, { userNum: { $inc: 1 } })
         .exec()
         .then(() => {
           return res
