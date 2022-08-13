@@ -11,6 +11,6 @@ const InitialUser = {
 export const userState = atom({
   key: "user",
   default: InitialUser,
-  //dangerouslyAllowMutability: true,
+  dangerouslyAllowMutability: true,
   effects_UNSTABLE: [persistAtom],
 });
