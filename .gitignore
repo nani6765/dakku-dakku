@@ -1,4 +1,4 @@
 node_modules
 client/node_modules
-client/src/config/firebase.js
+client/src/config
 .env
