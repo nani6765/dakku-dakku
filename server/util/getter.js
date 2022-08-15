@@ -1,4 +1,4 @@
-const User = require("../Model/user.js");
+const { User } = require("../Model/user.js");
 
 module.exports = {
   getUserIdByUid: function (uid) {
