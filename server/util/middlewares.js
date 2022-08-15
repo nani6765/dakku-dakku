@@ -13,19 +13,19 @@ module.exports = {
     if (!req.body.email)
       return res
         .status(400)
-        .json({ success: false, msg: "필요한 항목의 값이 비어있습니다." });
+        .json({ success: false, msg: "필요한 정보가 없습니다." });
 
     User.find({ email: userData.email })
       .exec()
       .then((docs) => {
         if (docs)
           return res
-            .status(400)
+            .status(401)
             .json({ success: false, msg: "중복된 email이 있습니다." });
         else next();
       })
       .catch((err) => {
-        return res.status(400).json({ success: false, err });
+        return res.status(402).json({ success: false, err });
       });
   },
 };
