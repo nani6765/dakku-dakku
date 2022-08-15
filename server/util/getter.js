@@ -2,7 +2,7 @@ const { User } = require("../Model/user.js");
 
 module.exports = {
   getUserIdByUid: function (uid) {
-    User.findOne({ uid: uid })
+    return User.findOne({ uid: uid })
       .exec()
       .then((userDoc) => {
         if (!userDoc) return { success: false, msg: "유저가 없습니다." };
