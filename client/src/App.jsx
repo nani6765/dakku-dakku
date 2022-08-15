@@ -43,14 +43,15 @@ function App() {
     console.log(user);
   }, [user]);
 
-  useEffect(() => {
-    axios.get("/api/test").then((response) => {
-      console.log(response.data);
-    });
-  }, []);
-
   return (
     <>
+      <button
+        onClick={() => {
+          axios.post("/api/post/test");
+        }}
+      >
+        테스트버튼
+      </button>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />

@@ -12,7 +12,7 @@ const postSchema = mongoose.Schema(
       type: Number,
     },
     author: {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "User",
       //required: true,
     },
@@ -25,6 +25,14 @@ const postSchema = mongoose.Schema(
     commentNum: {
       type: Number,
       default: 0,
+    },
+    likeList: {
+      type: Array,
+      default: [],
+    },
+    commentList: {
+      type: Array,
+      default: [],
     },
     public: Boolean,
   },
