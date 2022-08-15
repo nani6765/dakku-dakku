@@ -3,6 +3,7 @@ const swaggereJsdoc = require("swagger-jsdoc");
 
 const options = {
   swaggerDefinition: {
+    swagger: "2.0",
     info: {
       title: "dakku-dakku",
       version: "1.0.0",
