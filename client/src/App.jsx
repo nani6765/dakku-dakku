@@ -11,6 +11,7 @@ import { userState } from "./recoil/LoginAtom.js";
 //Component
 import Login from "./component/login/Login.jsx";
 import Home from "./component/home/Home.jsx";
+import RegisterComponent from "./component/login/RegisterComponent.jsx";
 
 //Style
 import "./App.css";
@@ -49,6 +50,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<RegisterComponent />} />
       </Routes>
     </>
   );
