@@ -14,7 +14,7 @@ const UserSchema = mongoose.Schema(
       type: String,
     },
     displayName: {
-      type: Number,
+      type: String,
     },
   },
   { collection: "users" }
