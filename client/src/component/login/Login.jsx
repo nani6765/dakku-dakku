@@ -3,7 +3,7 @@ import { GoogleLogin } from "react-google-login";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { firebaseAuth } from "../../config/firebase.js";
-import { signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 function Login() {
   const navigate = useNavigate();
