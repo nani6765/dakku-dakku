@@ -12,6 +12,7 @@ import { userState } from "./recoil/LoginAtom.js";
 import Login from "./component/login/Login.jsx";
 import Home from "./component/home/Home.jsx";
 import Detail from "./component/post/PostDetail.jsx"
+import Upload from "./component/upload";
 
 //Style
 import "./App.css";
@@ -24,8 +25,8 @@ function App() {
 
   useEffect(() => {
     onAuthStateChanged(firebaseAuth, (userInfo) => {
-      console.log(user) 
-      console.log(userInfo)
+      // console.log(user) 
+      // console.log(userInfo)
 
       if (userInfo) {
         let temp = {
@@ -47,7 +48,10 @@ function App() {
     <>
       <button
         onClick={() => {
-          axios.post("/api/post/test");
+          axios.post("/api/post/")
+          .then((res)=>{
+            console.log(res)
+          })
         }}
       >
         테스트버튼
@@ -56,6 +60,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/post/:postId" element={<Detail />} />
+        <Route path="/upload" element={<Upload />} />
       </Routes>
     </>
   );
