@@ -6,11 +6,12 @@
         "date":"2022-08-03", 
         "time":"17:00:00", 
         "image":["/image/cats.jpg"], 
-        "content":"Main Text", 
+        "content":"Main Text Main TextMain Text Main Text Main Text Main Text Main Text v Main TextMain TextMain Text", 
         "like":0, 
         "comment":10, 
         "tag":["분홍", "봄바람", "벚꽃"],
-        "publics": true
+        "publics": true,
+        "postId":"20220809123456"
     },
     {
         "id":"diewarrior", 
@@ -23,7 +24,8 @@
         "like":0, 
         "comment":10, 
         "tag":["글래디에이터", "중세"],
-        "publics": false
+        "publics": false,
+        "postId":"20220809153533"
     },
     {
         "id":"yesGuy", 
@@ -36,7 +38,8 @@
         "like":0, 
         "comment":10, 
         "tag":["Yes", "YesYes", "YesYesYes"],
-        "publics": true
+        "publics": true,
+        "postId":"2022080965942"
     },
     {
         "id":"Hound", 
@@ -49,7 +52,8 @@
         "like":0, 
         "comment":10, 
         "tag":["Hound"],
-        "publics": true
+        "publics": true,
+        "postId":"20220809383838"
     },
     {
         "id":"Mouse", 
@@ -62,7 +66,8 @@
         "like":0, 
         "comment":10, 
         "tag":["마우스"],
-        "publics": true
+        "publics": true,
+        "postId":"2022080999999"
     },
     {
         "id":"Gamer", 
@@ -75,6 +80,7 @@
         "like":0, 
         "comment":10, 
         "tag":["play_to game"],
-        "publics": true
+        "publics": true,
+        "postId":"20220809454262"
     }
 ]

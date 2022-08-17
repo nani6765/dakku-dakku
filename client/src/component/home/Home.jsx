@@ -4,14 +4,14 @@ import axios from "axios";
 import styled from '@emotion/styled'
 
 import HomeList from "./HomeList";
-import Header from "./element/Header"
-
+import Header from "./element/Header";
 
 
 export default function home() {
     const [userList, setUserList] = useState([]);
     const pubList = [];
 
+      
     useEffect(() => {
         axios.get("/data/mockdata.json")
         .then((res)=>{
@@ -38,8 +38,8 @@ export default function home() {
                 <ListBox>
                     {   
                         userList.length > 0
-                        ? userList.map((pl, idx)=>{ 
-                                return <HomeList info={pl} key={idx} /> 
+                        ? userList.map((pl)=>{ 
+                                return <HomeList info={pl} key={pl.postId} /> 
                             })
                         : false
                     }
