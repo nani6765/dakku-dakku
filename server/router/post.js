@@ -137,13 +137,14 @@ router.post("/", (req, res) => {
  *              example: Server Error Msg
  */
 router.post("/submit", middlewares.loginCheck, (req, res) => {
+  console.log(req.body)
   let userId = getter.getUserIdByUid(req.body.uid);
   if (
-    userId.id ||
-    req.body.email ||
-    req.body.mainText ||
-    req.body.tagList ||
-    req.body.public
+    userId.id == false ||
+    req.body.email == false ||
+    req.body.mainText == false ||
+    req.body.tagList == false ||
+    req.body.public == undefined
   )
     return res
       .status(401)
@@ -239,7 +240,7 @@ router.post("/submit", middlewares.loginCheck, (req, res) => {
  *              example: Server Error Msg
  */
 router.post("/detail", (req, res) => {
-  if (req.body.postNum)
+  if (!req.body.postNum)
     return res
       .status(400)
       .json({ success: false, msg: "필요한 정보가 없습니다." });
@@ -247,15 +248,18 @@ router.post("/detail", (req, res) => {
   Post.findOne({ postNum: +req.body.postNum })
     .exec()
     .then((postDoc) => {
+      
       if (!postDoc) {
         return res.status(401).json({
           success: false,
           msg: "해당되는 게시글이 없습니다.",
         });
       } else {
+
         return res.status(200).json({
           success: true,
-          postInfo,
+          postInfo
+          // postDoc,
         });
       }
     })

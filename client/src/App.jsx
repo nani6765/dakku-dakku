@@ -11,6 +11,7 @@ import Login from "./component/login/Login.jsx";
 import Home from "./component/home/Home.jsx";
 import Detail from "./component/post/PostDetail.jsx";
 import Register from "./component/register/Register.jsx";
+import Upload from "./component/upload";
 
 //Style
 import "./App.css";
@@ -21,9 +22,6 @@ function App() {
 
   useEffect(() => {
     onAuthStateChanged(firebaseAuth, (userInfo) => {
-      console.log(user);
-      console.log(userInfo);
-
       if (userInfo) {
         let temp = {
           isLogin: true,
@@ -47,6 +45,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/post/:postId" element={<Detail />} />
+        <Route path="/upload" element={<Upload />} />
       </Routes>
     </>
   );
