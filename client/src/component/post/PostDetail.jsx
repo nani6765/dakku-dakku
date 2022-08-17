@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { useParams } from 'react-router-dom';
 
 export default function PostDetail() {
     const postInfo = useParams();
@@ -17,8 +18,7 @@ export default function PostDetail() {
         console.log(res)
       })
     }, [])
-
-
+    
   return (
     <div>
         {postId}

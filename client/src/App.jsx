@@ -16,6 +16,7 @@ import Upload from "./component/upload";
 
 //Style
 import "./App.css";
+import Register from "./component/register/Register.jsx";
 
 function App() {
   const [user, setUser] = useRecoilState(userState);
@@ -25,9 +26,6 @@ function App() {
 
   useEffect(() => {
     onAuthStateChanged(firebaseAuth, (userInfo) => {
-      // console.log(user) 
-      // console.log(userInfo)
-
       if (userInfo) {
         let temp = {
           isLogin: true,
@@ -46,19 +44,10 @@ function App() {
 
   return (
     <>
-      <button
-        onClick={() => {
-          axios.post("/api/post/")
-          .then((res)=>{
-            console.log(res)
-          })
-        }}
-      >
-        테스트버튼
-      </button>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/post/:postId" element={<Detail />} />
         <Route path="/upload" element={<Upload />} />
       </Routes>
