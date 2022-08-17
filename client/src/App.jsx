@@ -3,15 +3,14 @@ import { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { firebaseAuth } from "./config/firebase.js";
-import axios from "axios";
-
 import { useRecoilState, useResetRecoilState } from "recoil";
 import { userState } from "./recoil/LoginAtom.js";
 
 //Component
 import Login from "./component/login/Login.jsx";
 import Home from "./component/home/Home.jsx";
-import RegisterComponent from "./component/login/RegisterComponent.jsx";
+import Detail from "./component/post/PostDetail.jsx";
+import Register from "./component/register/Register.jsx";
 
 //Style
 import "./App.css";
@@ -22,6 +21,9 @@ function App() {
 
   useEffect(() => {
     onAuthStateChanged(firebaseAuth, (userInfo) => {
+      console.log(user);
+      console.log(userInfo);
+
       if (userInfo) {
         let temp = {
           isLogin: true,
@@ -40,17 +42,12 @@ function App() {
 
   return (
     <>
-      <button
-        onClick={() => {
-          axios.post("/api/post/test");
-        }}
-      >
-        테스트버튼
-      </button>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<RegisterComponent />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/post/:postId" element={<Detail />} />
       </Routes>
     </>
   );
