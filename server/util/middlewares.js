@@ -15,7 +15,7 @@ module.exports = {
         .status(400)
         .json({ success: false, msg: "필요한 정보가 없습니다." });
 
-    User.find({ email: userData.email })
+    User.find({ email: req.body.email })
       .exec()
       .then((docs) => {
         if (docs)
