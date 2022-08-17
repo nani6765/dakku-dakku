@@ -15,6 +15,7 @@ import Detail from "./component/post/PostDetail.jsx"
 
 //Style
 import "./App.css";
+import Register from "./component/register/Register.jsx";
 
 function App() {
   const [user, setUser] = useRecoilState(userState);
@@ -45,16 +46,10 @@ function App() {
 
   return (
     <>
-      <button
-        onClick={() => {
-          axios.post("/api/post/test");
-        }}
-      >
-        테스트버튼
-      </button>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/post/:postId" element={<Detail />} />
       </Routes>
     </>
