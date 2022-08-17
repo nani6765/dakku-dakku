@@ -34,10 +34,6 @@ function App() {
     });
   }, []);
 
-  useEffect(() => {
-    console.log(user);
-  }, [user]);
-
   return (
     <>
       <Routes>

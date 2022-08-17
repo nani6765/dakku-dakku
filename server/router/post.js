@@ -137,7 +137,7 @@ router.post("/", (req, res) => {
  *              example: Server Error Msg
  */
 router.post("/submit", middlewares.loginCheck, (req, res) => {
-  console.log(req.body)
+  console.log(req.body);
   let userId = getter.getUserIdByUid(req.body.uid);
   if (
     userId.id == false ||
@@ -248,17 +248,15 @@ router.post("/detail", (req, res) => {
   Post.findOne({ postNum: +req.body.postNum })
     .exec()
     .then((postDoc) => {
-      
       if (!postDoc) {
         return res.status(401).json({
           success: false,
           msg: "해당되는 게시글이 없습니다.",
         });
       } else {
-
         return res.status(200).json({
           success: true,
-          postInfo
+          postInfo,
           // postDoc,
         });
       }
