@@ -14,6 +14,7 @@ import Home from "./component/home/Home.jsx";
 
 //Style
 import "./App.css";
+import Register from "./component/register/Register.jsx";
 
 function App() {
   const [user, setUser] = useRecoilState(userState);
@@ -41,7 +42,8 @@ function App() {
     <>
       <button
         onClick={() => {
-          axios.post("/api/post/test");
+          axios.post("/api/post")
+          .then((res)=>{console.log("게시글 불러오기", res.data)})
         }}
       >
         테스트버튼
@@ -49,6 +51,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </>
   );
