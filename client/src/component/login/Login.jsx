@@ -12,16 +12,22 @@ function Login() {
 
   const LoginFunc = async (e) => {
     e.preventDefault();
+    //doc. 실제 유저가 입력한 정보로.
     let doc = { email: "test@test.com", password: "123456" };
+
     await signInWithEmailAndPassword(firebaseAuth, doc.email, doc.password)
-      .then((elem) => {
-        // navigate main
+      .then((userInfo) => {
+        // 로그인이 성공.
+        // 유저가 입력한 id(email), displayName : userInfo
+        // recoil >> post upload할때 사용할 수 있도록.
       })
       .catch((err) => {
         console.log("로그인실패!", err);
+        // 로직.
       });
   };
 
+  /* Test */
   const LogoutFunc = async (e) => {
     e.preventDefault();
     await signOut(firebaseAuth)
@@ -32,13 +38,7 @@ function Login() {
         console.log("로그아웃 실패!", error);
       });
   };
-
-  // console.log(localStorage.getItem("userId"))
-  // console.log(userId);
-
-  const responseGoogle = (response) => {
-    // console.log(response);
-  };
+  /* Test End*/
 
   return (
     <>
@@ -84,6 +84,7 @@ function Login() {
       <br />
       --- 소셜 로그인 ---
       <div>
+        {/*
         <GoogleLogin
           clientId="767912908809-dim7a1e0qahmb537gdhsuiuc5a61ejs1.apps.googleusercontent.com"
           buttonText="구글 로그인"
@@ -91,6 +92,7 @@ function Login() {
           onFailure={responseGoogle}
           cookiePolicy={"single_host_origin"}
         />
+        */}
       </div>
     </>
   );

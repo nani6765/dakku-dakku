@@ -16,68 +16,60 @@ function Register() {
 
   const registerFunc = async (e) => {
     e.preventDefault();
+    if (!email) return alert("이메일을 입력하세요.");
+    if (!password) return alert("비밀번호를 입력하세요.");
+    if (password != passwordChk) return alert("비밀번호가 일치하지 않습니다.");
+    if (!displayName) return alert("닉네임을 입력하세요.");
 
-    if (
-      email &&
-      password &&
-      passwordChk &&
-      displayName &&
-      password == passwordChk
-    ) {
-      setRegisterLoading(true);
+    setRegisterLoading(true);
 
-      let body = {
-        email,
-        password,
-        displayName,
-      };
+    let body = {
+      email,
+      password,
+      displayName,
+    };
 
-      try {
-        let firebaseUser = await createUserWithEmailAndPassword(
-          firebaseAuth,
-          body.email, //
-          body.password //
-        )
-          .then(async (doc) => {
-            await updateProfile(doc.user, {
-              displayName, //
-            });
-            return doc.user;
-          })
-          .catch((err) => {
-            console.log("에러입니다", err.code.split("/")[1]);
+    const FirebaseRegisterFunc = (userInfo) => {
+       return await createUserWithEmailAndPassword(
+        firebaseAuth,
+        userInfo.email, //
+        userInfo.password //
+      )
+        .then(async (doc) => {
+          await updateProfile(doc.user, {
+            displayName, //
           });
-        // 이메일 형식, 중복 이메일, 비밀번호 길이
+          return doc.user;
+        })
+        .catch((err) => {
+          console.log(err.code)
+          // return thorw
+          // 1. email 중복
+          // 2. password 6자리 이하
+          // 3. etc..
+        });
+    }
 
-        let user = {
-          uid: firebaseUser.uid,
-          email: firebaseUser.email,
-          displayName: firebaseUser.displayName,
-        };
-        console.log("user", user);
+    try {
+      let userDoc = await FirebaseRegisterFunc(body);
+      body.uid = userDoc.uid; //password를 보내지만, 서버에서 저장하지 않음.
+      body.password = ""; //obj delete key.
 
-        await axios
-          .post("http://localhost:5000/api/user/register", user)
-          .then((res) => {
-            if (res.data.success) {
-              console.log("success");
-              alert("회원가입 완료");
-              setRegisterLoading(false);
-              navigate("/");
-            } else {
-              console.log("false");
-            }
-
-            console.log(res);
-          });
-      } catch (err) {
-        console.log(err);
-      }
-    } else {
-      if (!email) alert("이메일을 입력하세요.");
-      if (!password) alert("비밀번호를 입력하세요.");
-      if (password != passwordChk) alert("비밀번호가 일치하지 않습니다.");
-      if (!displayName) alert("닉네임을 입력하세요.");
+      await axios
+        .post("/api/user/register", body)
+        .then((res) => {
+          if (res.data.success) {
+            console.log("success");
+            alert("회원가입 완료");
+            setRegisterLoading(false);
+            navigate("/");
+          } else {
+            // return throw
+          }
+        });
+    } catch (err) {
+      //thorw code에 따라서 다르게 알려주기;
+      console.log(err)
     }
   };
 
